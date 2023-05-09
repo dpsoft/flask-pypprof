@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "flask-pypprof"
+version = "0.1.0"
+description = "Pypprof Flask wrapper"
+authors = ["Diego <diegolparra@gmail.com>"]
+readme = "README.md"
+packages = [{include = "flask_pypprof"}]
+
+[tool.poetry.dependencies]
+python = ">3.8"
+mprofile = "0.0.15"
+zprofile = "1.0.12"
+protobuf = "^3.20"
+pypprof = "0.0.1"
+flask = "^2.3.2"
+
+[tool.poetry.extras]
+runtime = ["zprofile"]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

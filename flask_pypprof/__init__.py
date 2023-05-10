@@ -1,6 +1,6 @@
 """
 Expose blueprint function
 """
-from flask_pypprof.routes import get_profiling_blueprint as blueprint
+from flask_pypprof.routes import get_pprof_endpoint_blueprint as blueprint
 
-get_profiling_blueprint = blueprint
+get_pprof_blueprint = blueprint

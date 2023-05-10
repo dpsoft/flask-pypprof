@@ -4,7 +4,7 @@ from flask import Blueprint, Response, request
 from flask_pypprof.handler import ProfileRequestHandler
 
 
-def get_profiling_blueprint() -> Blueprint:
+def get_pprof_endpoint_blueprint() -> Blueprint:
     """Handle pprof endpoint requests a la Go's net/http/pprof.
 
         The following endpoints are implemented:
@@ -18,21 +18,21 @@ def get_profiling_blueprint() -> Blueprint:
 
     @blueprint.route('/profile', methods=['GET'])
     def profile() -> Response:
-        """Get the CPU profile."""
+        """Get the CPU profile"""
         handler = ProfileRequestHandler(request)
         handler.profile()
         return Response(handler.get_response())
 
     @blueprint.route('/wall', methods=['GET'])
     def wall() -> Response:
-        """Get the Wall profile."""
+        """Get the Wall profile"""
         handler = ProfileRequestHandler(request)
         handler.wall()
         return Response(handler.get_response())
 
     @blueprint.route('/heap', methods=['GET'])
     def heap() -> Response:
-        """Get the Heap profile."""
+        """Get the Heap profile"""
         handler = ProfileRequestHandler(request)
         handler.heap()
         return Response(handler.get_response())
@@ -40,7 +40,7 @@ def get_profiling_blueprint() -> Blueprint:
     @blueprint.route('/thread', methods=['GET'])
     @blueprint.route('/goroutine', methods=['GET'])
     def thread() -> Response:
-        """Get the Thread profile."""
+        """Get the Thread profile"""
         handler = ProfileRequestHandler(request)
         handler.thread()
         return Response(handler.get_response())

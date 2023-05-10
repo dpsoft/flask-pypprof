@@ -5,3 +5,4 @@ __pycache__/
 /iorgen.egg-info/
 .idea/
 /__pycache__/
+.python-version

@@ -3,7 +3,7 @@ import sys
 from flask import Flask
 from flask_restful import Resource, Api
 
-from flask_pypprof import get_profiling_blueprint
+from flask_pypprof import get_pprof_blueprint
 
 
 class Hello(Resource):
@@ -13,7 +13,7 @@ class Hello(Resource):
 
 
 app = Flask(__name__)
-app.register_blueprint(get_profiling_blueprint())
+app.register_blueprint(get_pprof_blueprint())
 
 api = Api(app)
 api.add_resource(Hello, '/')

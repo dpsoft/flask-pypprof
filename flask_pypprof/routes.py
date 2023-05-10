@@ -21,7 +21,6 @@ def get_profiling_blueprint() -> Blueprint:
         """Get the CPU profile."""
         handler = ProfileRequestHandler(request)
         handler.profile()
-
         return Response(handler.get_response())
 
     @blueprint.route('/wall', methods=['GET'])
@@ -29,7 +28,6 @@ def get_profiling_blueprint() -> Blueprint:
         """Get the Wall profile."""
         handler = ProfileRequestHandler(request)
         handler.wall()
-
         return Response(handler.get_response())
 
     @blueprint.route('/heap', methods=['GET'])
@@ -37,7 +35,6 @@ def get_profiling_blueprint() -> Blueprint:
         """Get the Heap profile."""
         handler = ProfileRequestHandler(request)
         handler.heap()
-
         return Response(handler.get_response())
 
     @blueprint.route('/thread', methods=['GET'])
@@ -46,7 +43,6 @@ def get_profiling_blueprint() -> Blueprint:
         """Get the Thread profile."""
         handler = ProfileRequestHandler(request)
         handler.thread()
-
         return Response(handler.get_response())
 
     @blueprint.record

@@ -6,7 +6,7 @@ from pypprof.net_http import PProfRequestHandler
 class ProfileRequestHandler(PProfRequestHandler):
     """PProfRequestHandler wrapper for Flask's"""
     def __init__(self, req):
-        self.query = req.args
+        self.query = dict(req.args.lists())
         self.wfile = HttpResponse(BytesIO())
 
     def send_response(self, code, message=None):

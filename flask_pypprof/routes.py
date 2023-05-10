@@ -4,12 +4,20 @@ from flask_pypprof.handler import ProfileRequestHandler
 
 
 def get_profiling_blueprint() -> Blueprint:
-    """Get the blueprint for the profiling routes."""
+    """Handle pprof endpoint requests a la Go's net/http/pprof.
+
+        The following endpoints are implemented:
+          - /debug/pprof/profile: Collect a CPU profile.
+          - /debug/pprof/wall: Collect a wall-clock profile.
+          - /debug/pprof/heap: Get snapshot of current heap profile.
+          - /debug/pprof/thread (or /debug/pprof/goroutine): Currently running threads.
+    """
+
     blueprint = Blueprint("flask-pypprof", __name__, url_prefix="/debug/pprof")
 
     @blueprint.route('/profile', methods=['GET'])
     def profile() -> Response:
-        """Get the profile"""
+        """Get the CPU profile."""
         handler = ProfileRequestHandler(request)
         handler.profile()
 
@@ -17,7 +25,7 @@ def get_profiling_blueprint() -> Blueprint:
 
     @blueprint.route('/wall', methods=['GET'])
     def wall() -> Response:
-        """Get the wall profile."""
+        """Get the Wall profile."""
         handler = ProfileRequestHandler(request)
         handler.wall()
 
@@ -25,15 +33,16 @@ def get_profiling_blueprint() -> Blueprint:
 
     @blueprint.route('/heap', methods=['GET'])
     def heap() -> Response:
-        """Get the heap profile."""
+        """Get the Heap profile."""
         handler = ProfileRequestHandler(request)
         handler.heap()
 
         return Response(handler.get_response())
 
     @blueprint.route('/thread', methods=['GET'])
+    @blueprint.route('/goroutine', methods=['GET'])
     def thread() -> Response:
-        """Get the thread profile."""
+        """Get the Thread profile."""
         handler = ProfileRequestHandler(request)
         handler.thread()
 

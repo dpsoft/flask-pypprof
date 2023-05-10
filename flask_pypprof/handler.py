@@ -4,6 +4,7 @@ from pypprof.net_http import PProfRequestHandler
 
 
 class ProfileRequestHandler(PProfRequestHandler):
+    """PProfRequestHandler wrapper for Flask's"""
     def __init__(self, req):
         self.query = req.args
         self.wfile = HttpResponse(BytesIO())
@@ -18,7 +19,6 @@ class ProfileRequestHandler(PProfRequestHandler):
 
     def send_header(self, keyword, value):
         self.wfile.headers[keyword] = value
-        # self.wfile[keyword] = value
 
     def end_headers(self) -> None:
         pass
@@ -40,6 +40,7 @@ class ProfileRequestHandler(PProfRequestHandler):
 
 
 class HttpResponse:
+    """Basic HttpResponse implementation, just enough to make the pprof handler happy"""
     def __init__(self, content=b'', status=200, headers=None):
         self.status = status
         self.headers = headers or {}

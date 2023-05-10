@@ -8,14 +8,16 @@ packages = [{include = "flask_pypprof"}]
 
 [tool.poetry.dependencies]
 python = ">3.8"
-mprofile = "0.0.15"
 zprofile = "1.0.12"
 protobuf = "^3.20"
+mprofile = "0.0.14"
 pypprof = "0.0.1"
 flask = "^2.3.2"
+Django = "^4.0.1"
 
-[tool.poetry.extras]
-runtime = ["zprofile"]
+[tool.poetry.dev-dependencies]
+pytest = "^7.3.1"
+flask_restful = "^0.3.9"
 
 [build-system]
 requires = ["poetry-core"]

@@ -1,3 +1,4 @@
+import mprofile
 from flask import Blueprint, Response, request
 
 from flask_pypprof.handler import ProfileRequestHandler
@@ -47,5 +48,11 @@ def get_profiling_blueprint() -> Blueprint:
         handler.thread()
 
         return Response(handler.get_response())
+
+    @blueprint.record
+    def record_params(setup_state):
+        app = setup_state.app
+        # Start the profiler with the given sample rate or the default value
+        mprofile.start(sample_rate=getattr(app.config, "MEMORY_SAMPLE_RATE", 128 * 1024))
 
     return blueprint

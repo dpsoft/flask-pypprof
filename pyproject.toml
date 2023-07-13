@@ -10,7 +10,7 @@ packages = [{include = "flask_pypprof"}]
 python = ">3.8"
 zprofile = "1.0.12"
 protobuf = "^3.20"
-mprofile = "0.0.14"
+mprofile = "0.0.15"
 pypprof = "0.0.1"
 flask = "^2.3.2"
 

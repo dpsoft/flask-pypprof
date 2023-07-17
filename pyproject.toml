@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "flask-pypprof"
-version = "v0.1.6"
+version = "v0.1.7"
 description = "Pypprof Flask wrapper"
 authors = ["Diego <diegolparra@gmail.com>"]
 readme = "README.md"
@@ -19,5 +19,5 @@ pytest = "^7.3.1"
 flask_restful = "^0.3.9"
 
 [build-system]
-requires = ["poetry-core=1.4.1"]
+requires = ["poetry==1.4.2"]
 build-backend = "poetry.core.masonry.api"

@@ -42,12 +42,13 @@ Fetch a 30 seconds CPU profile:
 go tool pprof -http=:8088 http://localhost:8081/debug/pprof/profile?seconds=30
 ```
 
-
 Fetch a heap profile:
 
 ```bash
 go tool pprof -http=:8088 http://localhost:8081/debug/pprof/heap
 ```
+![image_2023-05-09_16-27-22](https://github.com/dpsoft/flask-pypprof/assets/2567525/33f36ed4-0b97-44fc-89e7-2fbbbbb7132a)
+
 
 ## Compatibility 
 Python 3.8, 3.9, 3.10 and Flask >= 2.0.0

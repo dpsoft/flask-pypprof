@@ -13,6 +13,7 @@ jobs:
       - name: Publish PyPi package
         uses: celsiusnarhwal/poetry-publish@v2
         with:
+          python-version: 3.10.4
           poetry-version: 1.5.1
           token: ${{ secrets.GITHUB_TOKEN }}
 #          PUBLISH_REGISTRY_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}

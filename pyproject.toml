@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "flask-pypprof"
-version = "v0.1.7"
+version = "v0.1.8"
 description = "Pypprof Flask wrapper"
 authors = ["Diego <diegolparra@gmail.com>"]
 readme = "README.md"

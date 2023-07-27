@@ -421,4 +421,4 @@ protobuf = "*"
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.8 <3.11"
-content-hash = "dd9c6af493f18d4719d13d63dd4d8e4179f13fcef98fa6a42fefe6dcee8eef09"
+content-hash = "c3c81c4c29252f56fa38a1c28c685f2735e83f37995ba6c7a8e81d75ffd24b55"

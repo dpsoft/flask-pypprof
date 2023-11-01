@@ -1,8 +1,12 @@
 from flask_pypprof import get_pprof_blueprint
 from flask import Flask
+import os
 
 
 def test_pprof_endpoints():
+    # enable memory profiling
+    os.environ["MEMORY_PROFILER_ENABLED"] = "true"
+
     flask_app = Flask(__name__)
     flask_app.register_blueprint(get_pprof_blueprint())
 

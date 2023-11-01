@@ -29,9 +29,11 @@ Once registered, you will be able to access the following endpoints:
 
 You can configure the memory sample rate by setting the following environment variable:
 
+* `MEMORY_PROFILER_ENABLED`: enables the memory profiler (default: false)
 * `MEMORY_SAMPLE_RATE`: sets the memory profiling sample rate (default: 128 * 1024)
 
 ```bash
+export MEMORY_PROFILER_ENABLED = false
 export MEMORY_SAMPLE_RATE = 128 * 1024
 ```
 

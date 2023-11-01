@@ -1,4 +1,5 @@
 import mprofile
+import os
 from flask import Blueprint, Response, request
 
 from flask_pypprof.handler import ProfileRequestHandler
@@ -47,8 +48,10 @@ def get_pprof_endpoint_blueprint() -> Blueprint:
 
     @blueprint.record
     def record_params(setup_state):
-        app = setup_state.app
         # Start the profiler with the given sample rate or the default value
-        mprofile.start(sample_rate=getattr(app.config, "MEMORY_SAMPLE_RATE", 128 * 1024))
+        if os.environ.get("MEMORY_PROFILER_ENABLED", False):
+            sample_rate = os.environ.get("MEMORY_SAMPLE_RATE", 128 * 1024)
+            mprofile.start(sample_rate=sample_rate)
+            print("Starting memory profiler with sample rate: {}".format(sample_rate))
 
     return blueprint

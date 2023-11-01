@@ -56,7 +56,6 @@ go tool pprof -http=:8088 http://localhost:8081/debug/pprof/heap
 Python **3.8**, **3.9**, **3.10** and Flask >= **2.0.0** and **Linux** only.
     
 ## Known issues
-* `zprofile issue with python 3.11`:  https://github.com/timpalpant/zprofile/pull/2 
 * `mprofile only works on linux/amd64 or at least linux/arm64 is not supported`. Also see timpalpant/mprofile#3.
 
 
